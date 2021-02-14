@@ -7,15 +7,15 @@ const inputChat=document.querySelector('#inputChat')
 firebase.auth().onAuthStateChanged(user => {
     if(user){
         console.log(user)
-        botones.innerHTML=`<button class="btn btn-outline-danger" id="btnCerrarSesion">Cerrar Sesión</button>`
-        nombreusuario.innerHTML=user.displayName
+        botones.innerHTML=`<button class="btn btn-outline-danger m-lg-2" id="btnCerrarSesion">Cerrar Sesión</button>`
+        nombreusuario.innerHTML=`Bienvenid@ ${user.displayName}`
         CerrarSesion()
         formulario.classList='input-group py-3 fixed-bottom container'
         contenidoChat(user)
     }
     else{
         console.log('No existe user')
-        botones.innerHTML=`<button class="btn btn-outline-success" id="btnAcceder">Acceder</button>`
+        botones.innerHTML=`<button class="btn btn-outline-success m-lg-2" id="btnAcceder">Acceder</button>`
     
         IniciarSesion()
         nombreusuario.innerHTML='Chat'
@@ -71,12 +71,12 @@ const contenidoChat =(user)=>{
             console.log(doc.data())
             if(doc.data().uid===user.uid){
                 contenidoProtegido.innerHTML +=`<div class="d-flex justify-content-end">
-                                      <span class="badge rounded-pill bg-primary">${doc.data().texto}</span>
+                                      <span class="badge rounded-pill bg-primary" style="font-size:13px; margin-top: 1.5px">${doc.data().texto}</span>
                                       </div>`
             }
             else{
                 contenidoProtegido.innerHTML +=`<div class="d-flex justify-content-start">
-                                                <span class="badge rounded-pill bg-secondary">${doc.data().texto}</span>
+                                                <span class="badge rounded-pill bg-secondary" style="font-size:13px; margin-top: 1.5px">${doc.data().texto}</span>
                                                 </div>`
             }
             contenidoProtegido.scrollTop=contenidoProtegido.scrollHeight
