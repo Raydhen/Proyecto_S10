@@ -15,7 +15,7 @@ firebase.auth().onAuthStateChanged(user => {
     }
     else{
         console.log('No existe user')
-        botones.innerHTML=`<button class="btn btn-outline-info p-2 bd-highlight" style="transition: all .5s ease;">Registrarse</button>
+        botones.innerHTML=`<a class="btn btn-outline-info p-2 bd-highlight" style="transition: all .5s ease;" href='https://accounts.google.com/signup/v2/webcreateaccount?continue=https%3A%2F%2Faccounts.google.com%2FManageAccount%3Fnc%3D1&hl=es_ES&flowName=GlifWebSignIn&flowEntry=SignUp' target="_blank">Registrarse</a>
         <button class="btn btn-outline-success m-lg-2 p-2 bd-highlight" id="btnAcceder" style="transition: all .5s ease;">Acceder</button>`
         IniciarSesion()
         nombreusuario.classList='navbar-brand p-2 flex-grow-1 bd-highlight'
@@ -88,3 +88,4 @@ const contenidoChat =(user)=>{
     })
 }
 // -------------------------------------------------------------------------
+
