@@ -25,20 +25,21 @@
         firebase.initializeApp(firebaseConfig);
     </script>
     <link rel="stylesheet" href="style.css">
+    
   </head>
-  <body>
-    <div class="container">
-      <nav class="navbar navbar-dark bg-dark ">
+  <body style="background-color: #222831; ">
+  
+    <div class="container" style="width: 100%; background-color:transparent; height: 100%;">
+      <nav class="navbar navbar-dark d-flex bd-highlight " style="border-radius: 5px;background-color: transparent;" >
           <span class="navbar-brand" id="nombreusuario">Chat</span>
-          <div id="botones">
+          <div id="botones">  
               <button class="btn btn-outline-success">Acceder</button>
               <button class="btn btn-outline-danger">Cerrar Sesión</button>
           </div>
       </nav>
-      <main id="contenidoProtegido" class="mt-4" style="height: 75vh; overflow-y: scroll;">
+      <main id="contenidoProtegido" class="mt-2" style="height: 75vh; overflow-y: scroll;")>
           
-          
-          <p class="text-center lead mt-5" >Debes iniciar sesión</p>
+
       </main>
       <form class="input-group py-3 fixed-bottom container" id="formulario">
         <input type="text" class="form-control" placeholder="Enviar mensaje" id="inputChat">
@@ -48,5 +49,6 @@
       </form>
     </div>
     <script src="app.js"></script>
+  
   </body>
 </html>

@@ -3,24 +3,28 @@ const nombreusuario = document.querySelector('#nombreusuario')
 const contenidoProtegido=document.querySelector('#contenidoProtegido')
 const formulario=document.querySelector('#formulario')
 const inputChat=document.querySelector('#inputChat')
-
 firebase.auth().onAuthStateChanged(user => {
     if(user){
         console.log(user)
-        botones.innerHTML=`<button class="btn btn-outline-danger m-lg-2" id="btnCerrarSesion">Cerrar Sesión</button>`
+        botones.innerHTML=`<button class="btn btn-outline-danger m-lg-2" id="btnCerrarSesion" style="transition: all .5s ease;">Cerrar Sesión</button>`
         nombreusuario.innerHTML=`Bienvenid@ ${user.displayName}`
         CerrarSesion()
         formulario.classList='input-group py-3 fixed-bottom container'
+        contenidoProtegido.classList='mt-2'
         contenidoChat(user)
     }
     else{
         console.log('No existe user')
-        botones.innerHTML=`<button class="btn btn-outline-success m-lg-2" id="btnAcceder">Acceder</button>`
-    
+        botones.innerHTML=`<button class="btn btn-outline-info p-2 bd-highlight" style="transition: all .5s ease;">Registrarse</button>
+        <button class="btn btn-outline-success m-lg-2 p-2 bd-highlight" id="btnAcceder" style="transition: all .5s ease;">Acceder</button>`
         IniciarSesion()
+        nombreusuario.classList='navbar-brand p-2 flex-grow-1 bd-highlight'
         nombreusuario.innerHTML='Chat'
-        contenidoProtegido.innerHTML=`<p class="text-center lead mt-5" >Debes iniciar sesión</p>`
+        contenidoProtegido.classList='mt-2 overflow-hidden'
+        contenidoProtegido.innerHTML=`<p class="text-center lead mt-5" style="color: white;">Debes iniciar sesión o registrarte</p>
+                                      <center><img src="a6b715ecba7ebca3dae9adb2c2daf27e.gif"/></center>`
         formulario.classList='input-group py-3 fixed-bottom container d-none'
+        
     }
 })
 
@@ -83,3 +87,4 @@ const contenidoChat =(user)=>{
         })
     })
 }
+// -------------------------------------------------------------------------
